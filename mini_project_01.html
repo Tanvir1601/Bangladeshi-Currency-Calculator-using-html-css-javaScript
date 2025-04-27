@@ -64,12 +64,10 @@
             margin: 10px 0;
             width: 100%;
             justify-content: space-between;
-
         }
 
         .currency-input label {
             width: 25%;
-
             font-size: 14px;
             color: #666;
         }
@@ -106,20 +104,36 @@
             transform: scale(1.05);
         }
 
-        .result {
-            margin-top: 20px;
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #333;
-            grid-column: span 2;
+        .result-box {
+            background: #ffffff;
+            border: 2px solid #2575fc;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 25px;
+            width: 100%;
             text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
         }
 
+        .result-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        }
 
+        .result-box h3 {
+            font-size: 20px;
+            color: #444;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
 
-        .result span {
+        .result-box span {
+            font-size: 36px;
             color: #2575fc;
-            text-align: center;
+            font-weight: 700;
+            display: block;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -190,7 +204,10 @@
 
         <button onclick="calculateTotal()">Calculate Total</button>
 
-        <div class="result" id="result"></div>
+        <div class="result-box" id="result">
+            <h3>Your Total Amount</h3>
+            <span>0 Taka</span>
+        </div>
     </div>
 
     <script>
@@ -209,7 +226,7 @@
             const total = (oneTaka * 1) + (twoTaka * 2) + (fiveTaka * 5) + (tenTaka * 10) + (twentyTaka * 20) +
                 (fiftyTaka * 50) + (hundredTaka * 100) + (twohundredTaka * 200) + (fiveHundredTaka * 500) + (thousandTaka * 1000);
 
-            document.getElementById('result').innerHTML = `Total: <span>${total} Taka</span>`;
+            document.querySelector('#result span').innerText = `${total} Taka`;
         }
     </script>
 </body>
